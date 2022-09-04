@@ -10,12 +10,12 @@ public interface DepartmentService {
 	
 	Page<Department> getAllDepartment(Pageable page);
 	
-	Department getExpenseById(Long id);
+	Department getDepartmentById(Long id);
 	
 	void deleteDepartmentById(Long id);
 	
 	Department saveDepartmentDetails(Department department);
 	
-	Department updateExpenseDetails(Long id,  Department department);
+	Department updateDepartmentDetails(Long id,  Department department);
 
 }
