@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -29,15 +30,15 @@ public class DepartmentController {
 	
 	// controller create
 	@ResponseStatus(value = HttpStatus.CREATED)
-	@PostMapping("/expenses")
+	@PostMapping("/department")
 	public Department saveDepartmentDetails(@Valid  @RequestBody Department department) {
 		return departmentService.saveDepartmentDetails(department);
 	}
 	
 	// controller get all
 	@GetMapping("/department")
-	public List<Department> getAllDepartment(Pageable page){
-		return departmentService.getAllDepartment(page).toList();
+	public Page<Department> getAllDepartment(Pageable page){
+		return departmentService.getAllDepartment(page);
 	}
 	
 	// controller get by id

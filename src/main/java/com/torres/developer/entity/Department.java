@@ -32,7 +32,7 @@ public class Department {
 	@Column(name = "department_number")
 	@NotBlank(message = "Department number field must not be null")
 	@Size(min = 3, message  = "The department number field must have more than 3 characters")
-	private String departmentsNumber;
+	private String departmentNumber;
 	
 	@Column(name = "department_name") 
 	@NotBlank(message = "Department name field must not be null")

@@ -49,7 +49,7 @@ public class DepartmentServiceImpl implements DepartmentService {
 	public Department updateDepartmentDetails(Long id, Department department) {
 		Department departmentUpdate = getDepartmentById(id);
 		departmentUpdate.setDepartmentName(department.getDepartmentName() != null ? department.getDepartmentName() : departmentUpdate.getDepartmentName());
-		departmentUpdate.setDepartmentsNumber(department.getDepartmentsNumber()!= null ? department.getDepartmentName() : departmentUpdate.getDepartmentsNumber());
+		departmentUpdate.setDepartmentNumber(department.getDepartmentNumber()!= null ? department.getDepartmentName() : departmentUpdate.getDepartmentNumber());
 		return departmentRepository.save(departmentUpdate);
 	}
 	
