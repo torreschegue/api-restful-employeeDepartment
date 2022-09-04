@@ -1,6 +1,7 @@
 package com.torres.developer.entity;
 
 import java.sql.Timestamp;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,7 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -22,22 +23,28 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "tbl_departments")
-public class Department {
+@Table(name = "tbl_employees")
+public class Employee {
 	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name = "department_number")
-	@NotBlank(message = "Department number field must not be null")
-	@Size(min = 3, message  = "The department number field must have more than 3 characters")
-	private String departmentsNumber;
+	@Column(name = "nombre")
+	@NotBlank(message = "name field must not be empty")
+	private String name;
 	
-	@Column(name = "department_name") 
-	@NotBlank(message = "Department name field must not be null")
-	@Size(min = 3, message  = "The department name field must have more than 3 characters")
-	private String departmentName;
+	@Column(name = "father_surname")
+	@NotBlank(message = "father surname field should not be empty")
+	private String fatherSurname;
+	
+	@Column(name = "mother_surname")
+	@NotBlank(message = "mother surname field should not be empty")
+	private String motherSurname;
+	
+	@NotNull(message = "Date must not be null")
+	private Date dateAdmissio;
 	
 	@Column(name = "created_at", nullable = false, updatable = false)
 	@CreationTimestamp
@@ -47,5 +54,6 @@ public class Department {
 	@UpdateTimestamp
 	private Timestamp updatedAt;
 	
-
+	
+	
 }
