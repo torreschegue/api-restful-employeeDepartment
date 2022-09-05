@@ -55,7 +55,7 @@ public class DepartmentController {
 	// Controller Delete Entity
 	@ResponseStatus(value = HttpStatus.NO_CONTENT)
 	@DeleteMapping("/department")
-	public void deleteExpenseById(@RequestParam("id") Long id) {
+	public void deleteDepartmet(@RequestParam("id") Long id) {
 		departmentService.deleteDepartmentById(id);		
 	};
 	

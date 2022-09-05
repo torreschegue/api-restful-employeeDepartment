@@ -8,12 +8,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -48,12 +51,16 @@ public class Employee {
 	
 	@Column(name = "created_at", nullable = false, updatable = false)
 	@CreationTimestamp
+	@JsonIgnore
 	private Timestamp createdAt;
 	
 	@Column(name = "updated_at")
 	@UpdateTimestamp
+	@JsonIgnore
 	private Timestamp updatedAt;
 	
+	@ManyToOne
+	private Department department;
 	
 	
 }
